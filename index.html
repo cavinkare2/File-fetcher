@@ -3,9 +3,9 @@
 
 @media(max-width:680px){.tabs{grid-template-columns:1fr!important}}.tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin:16px 0 22px}.tab{border-radius:14px;border:2px solid #dce4ed;padding:20px;background:white;color:#21445a;text-align:left;font-size:18px}.tab.active{border-color:#118572;background:#e6f7f2;color:#126f65}.tab small{display:block;font-size:12px;margin-top:5px;font-weight:500}.hidden{display:none!important}.pill{display:inline-block;font-size:12px;border-radius:20px;padding:5px 12px;background:#e6f7f2;color:#126f65;font-weight:700;margin-top:8px}.info{padding:12px 15px;border-radius:9px;background:#eef4fb;color:#39536c;margin-top:14px;font-size:13px}.state-optional{font-weight:600}
 </style></head><body><div class="wrap"><header><div class="logo">CK</div><div><h1>CHIK · Telecalling File Generator</h1><p class="muted">Five divisions · Automatic Google Sheets lookup · Excel export</p></div></header>
-<div class="tabs"><button type="button" class="tab active" data-product="onion">CHIK Onion<small>MAH / GJ / RJ · Unique Code / Rtrcode</small></button><button type="button" class="tab" data-product="egg">CHIK Egg Yellow<small>All states · Unique Code / Rtrcode</small></button><button type="button" class="tab" data-product="karthika">Karthika<small>TN / KAR / RAPT · Unique Code / Rtrcode</small></button><button type="button" class="tab" data-product="all">All SKUs<small>All 3 products · Every state · Mixed codes</small></button><button type="button" class="tab" data-product="creator">Data Creator<small>2 new sheets · Generate unique OTPs</small></button></div>
+<div class="tabs"><button type="button" class="tab active" data-product="onion">CHIK Onion<small>MAH / GJ / RJ · Unique Code / Rtrcode</small></button><button type="button" class="tab" data-product="egg">CHIK Egg Yellow<small>All states · Unique Code / Rtrcode</small></button><button type="button" class="tab" data-product="karthika">Karthika<small>TN / KAR / RAPT · Unique Code / Rtrcode</small></button><button type="button" class="tab" data-product="all">All SKUs<small>All 3 products · Every state · Mixed codes</small></button><button type="button" class="tab" data-product="creator">Data Creator<small>Search missing codes · 2 extra sources</small></button></div>
 <div class="card" id="codeCard"><div class="step" id="identifierStep">Step 1 · Unique Code / Rtrcode</div><label for="codes" id="identifierLabel">Paste Unique Codes or Rtrcodes (one per line)</label><textarea id="codes" placeholder="3022229878&#10;3022847951&#10;5603047301&#10;5602864654"></textarea><div class="foot">Codes remain in the pasted order. Repeated input codes are removed.</div></div>
-<div class="card" id="sourceCard"><div class="step">Step 2 · Source / States</div><div id="onionControls"><div class="states"><label class="state"><input type="checkbox" value="MAH"> MAH · Maharashtra</label><label class="state"><input type="checkbox" value="GJ"> GJ · Gujarat</label><label class="state"><input type="checkbox" value="RJ"> RJ · Rajasthan</label></div><div class="foot">Select one or multiple tabs. Matches either Rtrcode (A) or Unique Code (E).</div></div><div id="karthikaControls" class="hidden"><strong>Karthika · Select source states</strong><div class="states"><label class="state"><input type="checkbox" value="TN"> TN · Tamil Nadu</label><label class="state"><input type="checkbox" value="KAR"> KAR · Karnataka</label><label class="state"><input type="checkbox" value="RAPT"> RAPT</label></div><div class="foot">Matches Rtrcode (A) or Unique Code (D), retailer (B), OTP (C), state (H), shopkeeper number (K).</div></div><div id="allControls" class="hidden"><strong>All SKUs · Every tab and state</strong><div class="pill">Search both Rtrcode &amp; Unique Code everywhere</div><div class="info">Searches all three Google Sheets: Onion MAH/GJ/RJ, Egg Yellow, and Karthika TN/KAR/RAPT. One combined OTP sheet, separate Telecalling sheets per SKU, plus Egg Yellow All Columns and state sheets.</div></div><div id="eggControls" class="hidden"><strong>CHIK Egg Yellow · Automatic lookup across all states</strong><div class="pill">State groups created from the matched records</div><div class="info">Matches Rtrcode (A) or Unique Code (D) in the linked source and exports the original 11 columns. Each state found among matched codes gets its own Excel sheet.</div></div><div id="creatorControls" class="hidden"><div class="pill">Fetch all rows from both new Google Sheets</div><div class="info">Converts to the standard 11-column retailer layout. Creates distinct 6-digit OTPs for this export. Rtrcode is read from the new source column when present. The same code may receive a new OTP when you regenerate.</div></div></div>
+<div class="card" id="sourceCard"><div class="step">Step 2 · Source / States</div><div id="onionControls"><div class="states"><label class="state"><input type="checkbox" value="MAH"> MAH · Maharashtra</label><label class="state"><input type="checkbox" value="GJ"> GJ · Gujarat</label><label class="state"><input type="checkbox" value="RJ"> RJ · Rajasthan</label></div><div class="foot">Select one or multiple tabs. Matches either Rtrcode (A) or Unique Code (E).</div></div><div id="karthikaControls" class="hidden"><strong>Karthika · Select source states</strong><div class="states"><label class="state"><input type="checkbox" value="TN"> TN · Tamil Nadu</label><label class="state"><input type="checkbox" value="KAR"> KAR · Karnataka</label><label class="state"><input type="checkbox" value="RAPT"> RAPT</label></div><div class="foot">Matches Rtrcode (A) or Unique Code (D), retailer (B), OTP (C), state (H), shopkeeper number (K).</div></div><div id="allControls" class="hidden"><strong>All SKUs · Every tab and state</strong><div class="pill">Search both Rtrcode &amp; Unique Code everywhere</div><div class="info">Searches all three Google Sheets: Onion MAH/GJ/RJ, Egg Yellow, and Karthika TN/KAR/RAPT. One combined OTP sheet, separate Telecalling sheets per SKU, plus Egg Yellow All Columns and state sheets.</div></div><div id="eggControls" class="hidden"><strong>CHIK Egg Yellow · Automatic lookup across all states</strong><div class="pill">State groups created from the matched records</div><div class="info">Matches Rtrcode (A) or Unique Code (D) in the linked source and exports the original 11 columns. Each state found among matched codes gets its own Excel sheet.</div></div><div id="creatorControls" class="hidden"><div class="pill">Search both new Google Sheets for missing codes</div><div class="info">Paste Unique Codes or Rtrcodes and retrieve only the matched records. A new non-repeating six-digit OTP is assigned to each found record. These sources do not identify which CHIK SKU a retailer belongs to.</div></div><div id="fallbackControl" class="info"><label style="margin:0"><input id="fallbackCheck" type="checkbox" checked> Search unmatched codes in Data Creator sources (both extra sheets)</label><div class="muted" style="margin-top:5px">Fallback records are labeled Data Creator / SKU unverified, not assumed to be Onion, Egg Yellow or Karthika.</div></div></div>
 <div class="card"><div class="actions"><button id="findBtn">Fetch &amp; Match Codes</button><button id="downloadBtn" class="secondary" disabled>Download Excel (.xlsx)</button><span class="msg" id="status">Ready</span></div><div id="warning"></div><div id="scanBox" class="hidden" style="margin-top:14px"><div id="scanText" class="msg">Waiting</div><progress id="scanBar" value="0" max="100" style="width:100%;height:18px"></progress></div></div>
 <div id="results" class="card"><div class="step" id="resultHeading">Matching summary</div><div id="kpis" class="kpis"></div><h3>Sheet 1 · Telecalling</h3><div class="scroll"><table><thead><tr><th id="identifierHeader">Unique Code / Rtrcode</th><th>RtrName</th><th>State</th><th>OTP</th><th>Shopkeeper Number</th><th>Product</th></tr></thead><tbody id="preview"></tbody></table></div><div class="foot" id="sheetNotes"></div></div>
 <div class="foot">Sources: <a target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1er5cV9Jt14L2fIZiFo38mA8eaQm7i1qU28H_oCPJVJI/edit">CHIK Onion</a> · <a target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1C4DrQJf2LU_J1E3rI9x4AqC9AOT2s_va6AFdlqZlrRg/edit?gid=0">CHIK Egg Yellow</a> · <a target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/190ToUYgQsfBl6IYIURsEObUH4re7V7r3YfrggCC4K-U/edit?gid=0">Karthika</a> · <a target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/19YsaCal4NPod7dt1JU3qbE_DpGJztf24/edit?gid=1219874356">Creator source 1</a> · <a target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1pk9OI6hLNvUwRmqWMZo-1hWHSbMazBM5/edit?gid=354538490">Creator source 2</a>.</div></div>
@@ -18,7 +18,7 @@ const value=v=>String(v??'').trim().replace(/^\s*'/,'');
 const cleanCode=v=>{let s=value(v).replace(/[\u200B-\u200D\uFEFF]/g,'').replace(/[\s,]/g,'');if(/^\d+\.0+$/.test(s))s=s.split('.')[0];if(/^\d+(?:\.\d+)?e\+?\d+$/i.test(s)){let n=Number(s);if(Number.isSafeInteger(n))s=String(n)}return s};
 function setMessage(txt,error=false){$('warning').replaceChildren();if(txt){const a=document.createElement('div');a.className=error?'error':'good';a.textContent=txt;$('warning').append(a)}}
 function reset(){exported=null;$('results').style.display='none';$('downloadBtn').disabled=true;$('status').textContent='Ready';setMessage('')}
-document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{if(!$('findBtn').disabled){active=b.dataset.product;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));$('onionControls').classList.toggle('hidden',active!=='onion');$('eggControls').classList.toggle('hidden',active!=='egg');$('allControls').classList.toggle('hidden',active!=='all');$('karthikaControls').classList.toggle('hidden',active!=='karthika');$('creatorControls').classList.toggle('hidden',active!=='creator');$('codeCard').classList.toggle('hidden',active==='creator');$('sourceCard').querySelector('.step').textContent=active==='creator'?'Step 1 · Sources':'Step 2 · Source / States';$('findBtn').textContent=active==='creator'?'Fetch Data & Create OTPs':'Fetch & Match Codes';$('identifierStep').textContent='Step 1 · Unique Code / Rtrcode';$('identifierLabel').textContent='Paste Unique Codes or Rtrcodes (one per line)';$('identifierHeader').textContent='Unique Code / Rtrcode';$('codes').placeholder=active==='all'?'3022229878\n5603047301\n5065474188\nGT4100020177650002017765-RP30OCT04276':active==='karthika'?'5065474188\nGT4100020177650002017765-RP30OCT04276':'3022229878\nGT0100020014760002001476-SLM0021596794841';$('codes').value='';reset()}}));
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{if(!$('findBtn').disabled){active=b.dataset.product;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));$('onionControls').classList.toggle('hidden',active!=='onion');$('eggControls').classList.toggle('hidden',active!=='egg');$('allControls').classList.toggle('hidden',active!=='all');$('karthikaControls').classList.toggle('hidden',active!=='karthika');$('creatorControls').classList.toggle('hidden',active!=='creator');$('codeCard').classList.remove('hidden');$('fallbackControl').classList.toggle('hidden',active==='creator');$('sourceCard').querySelector('.step').textContent=active==='creator'?'Step 1 · Sources':'Step 2 · Source / States';$('findBtn').textContent=active==='creator'?'Find Codes & Generate OTPs':'Fetch & Match Codes';$('identifierStep').textContent='Step 1 · Unique Code / Rtrcode';$('identifierLabel').textContent='Paste Unique Codes or Rtrcodes (one per line)';$('identifierHeader').textContent='Unique Code / Rtrcode';$('codes').placeholder=active==='all'?'3022229878\n5603047301\n5065474188\nGT4100020177650002017765-RP30OCT04276':active==='karthika'?'5065474188\nGT4100020177650002017765-RP30OCT04276':'3022229878\nGT0100020014760002001476-SLM0021596794841';$('codes').value='';reset()}}));
 function loadTable(source,tab,gid){return new Promise((resolve,reject)=>{
  let finished=false,cb='chikCb_'+Math.random().toString(36).slice(2);const script=document.createElement('script');const timer=setTimeout(()=>finish(new Error('Google Sheets did not respond for '+tab+'. Check direct access to the source sheet.')),30000);
  function finish(err,rows){if(finished)return;finished=true;clearTimeout(timer);script.remove();try{delete window[cb]}catch{};err?reject(err):resolve(rows)}
@@ -45,8 +45,60 @@ function makeIndex(rows,source,tab){
 }
 function inputCodes(){return [...new Set($('codes').value.split(/[\n\r,;]+/).map(x=>normalizeId(x)).filter(Boolean))]}
 function previewRow(values,isMissing){const tr=document.createElement('tr');if(isMissing)tr.className='missing';for(const v of values){const td=document.createElement('td');td.textContent=v;tr.append(td)}$('preview').append(tr)}
+// Fallback sources: retrieve both identifier fields independently; never infer an SKU.
+function creatorRecord(row) {
+ const r=row.map(value), idCandidates=[];
+ for(let i=0;i<r.length;i++)if(/^(?:GT|SRCK|APSRT)[A-Z0-9-]{7,}$/i.test(r[i]) && r[i].includes('-'))idCandidates.push(r[i]);
+ const rtr=idCandidates[0]||'';
+ const unique=cleanCode(r[5]);
+ if(!/^\d{7,}$/.test(unique)||!value(r[6])||normalizeId(unique)==='UNIQUECODE')return null;
+ return {rtr,unique,name:value(r[6]),smno:value(r[1]),smname:value(r[0]),route:value(r[3]),state:value(r[8]),lat:value(r[9]),long:value(r[10]),phone:cleanCode(r[7])};
+}
+async function fetchCreatorIndex(){
+ const map=new Map(),errors=[];let scanned=0;
+ $('scanBox').classList.remove('hidden');$('scanText').textContent='Loading Data Creator sources…';$('scanBar').value=0;
+ for(let i=0;i<CREATOR_SOURCE.length;i++){
+  const src=CREATOR_SOURCE[i];let records;
+  try{records=await loadTable(src,src.label,src.gid)}catch(e){errors.push(src.label+': '+e.message);continue}
+  for(const raw of records){scanned++;const rec=creatorRecord(raw);if(!rec)continue;
+   for(const id of new Set([normalizeId(rec.rtr),normalizeId(rec.unique)].filter(Boolean))){if(!map.has(id))map.set(id,[]);map.get(id).push(rec)}
+  }
+  $('scanBar').value=(i+1)*50;$('scanText').textContent=`${scanned.toLocaleString()} source rows scanned · ${i+1} / 2 sources loaded`;
+  await new Promise(requestAnimationFrame);
+ }
+ if(errors.length)throw Error('Cannot confirm missing codes because these Data Creator sources failed: '+errors.join('; '));
+ return {map,scanned};
+}
+function singleCreatorHit(code,index){
+ const a=index.map.get(code)||[];
+ const distinct=[...new Map(a.map(r=>[(r.rtr||'')+'|'+r.unique+'|'+r.phone,r])).values()];
+ return distinct.length===1?{state:'found',record:distinct[0]}:distinct.length>1?{state:'ambiguous'}:{state:'missing'};
+}
+function creatorFullRow(rec,otp){return [rec.rtr,rec.name,otp,rec.unique,rec.smno,rec.smname,rec.route,rec.state,rec.lat,rec.long,rec.phone]}
+async function runCreatorLookup(){
+ reset();const codes=inputCodes();if(!codes.length)return setMessage('Paste Unique Codes or Rtrcodes.',true);
+ $('findBtn').disabled=true;document.querySelectorAll('.tab').forEach(b=>b.disabled=true);
+ try{
+  const index=await fetchCreatorIndex(),used=new Set(),rows=[CREATED_HEADERS],otp=[['Product','Shopkeeper Number','otp']],stateRows=new Map(),miss=new Set(),preview=[];let found=0,missing=0,review=0;
+  for(const code of codes){const result=singleCreatorHit(code,index);
+   if(result.state==='found'){
+    const r=result.record,pin=newOTP(used),row=creatorFullRow(r,pin);rows.push(row);
+    if(r.phone)otp.push(['Data Creator - SKU unverified',r.phone,pin]);
+    else {review++;miss.add(preview.length+1)}
+    const state=r.state||'Unknown State';if(!stateRows.has(state))stateRows.set(state,[CREATED_HEADERS]);stateRows.get(state).push(row);
+    preview.push([code,r.name,r.state,pin,r.phone,'Data Creator · SKU unverified']);found++;
+   }else{preview.push([code,result.state==='ambiguous'?'AMBIGUOUS':'NOT FOUND','','','','']);miss.add(preview.length);if(result.state==='ambiguous')review++;else missing++}
+  }
+  $('preview').replaceChildren();preview.forEach((r,i)=>previewRow(r,miss.has(i+1)));
+  $('resultHeading').textContent='Data Creator fallback lookup';$('results').style.display='block';
+  $('kpis').innerHTML=`<div class="kpi"><b>${index.scanned}</b><span>Source rows scanned</span></div><div class="kpi"><b>${found}</b><span>Codes found</span></div><div class="kpi"><b>${missing}</b><span>Not found</span></div><div class="kpi"><b>${review}</b><span>Need review</span></div>`;
+  $('sheetNotes').textContent='Created Data · OTP List · State-wise sheets · Unmatched Review. Fallback matches are not assigned to a CHIK SKU.';
+  exported={mode:'creator',rows,otp,stateRows,unmatched:preview.filter((r,i)=>miss.has(i+1)).map(r=>[r[0],r[1]])};$('downloadBtn').disabled=false;
+  $('status').textContent=`Scanned ${index.scanned} rows; ${found} matched`;setMessage(`Found ${found} records across both fallback sources. SKU is unverified; review before sending OTPs.`)
+ }catch(e){$('status').textContent='Source fetch failed';setMessage(e.message,true)}finally{$('findBtn').disabled=false;document.querySelectorAll('.tab').forEach(b=>b.disabled=false)}
+}
 $('findBtn').addEventListener('click',async()=>{
- if(active==='creator'){await runCreator();return;}
+ if(active==='creator'){await runCreatorLookup();return;}
  reset();const mode=active,source=SOURCES[mode],codes=inputCodes(),tabs=mode==='all'?['ALL']:mode==='egg'?['Egg Yellow']:[...document.querySelectorAll(mode==='karthika'?'#karthikaControls .state input:checked':'#onionControls .state input:checked')].map(e=>e.value);
  if(!codes.length)return setMessage('Paste at least one Unique Code or Rtrcode.',true);if(!tabs.length)return setMessage('Select at least one state.',true);
  $('findBtn').disabled=true;document.querySelectorAll('.tab').forEach(b=>b.disabled=true);$('status').textContent='Fetching source data…';try{
@@ -59,7 +111,7 @@ $('findBtn').addEventListener('click',async()=>{
   const otp=[['Product','Shopkeeper Number','otp']];
   const eggAll=[SOURCES.egg.names.slice()],eggStates=new Map();
   const unmatched=[['Input Code','Status','Details']];
-  const previewRows=[],previewMissing=new Set();let ok=0,notfound=0,review=0;
+  const previewRows=[],previewMissing=new Set();let ok=0,notfound=0,review=0;const useFallback=$('fallbackCheck').checked;const creatorIndex=useFallback?await fetchCreatorIndex():null;const creatorRows=[CREATED_HEADERS],creatorOtpUsed=new Set(),fallbackReview=[];
   for(const code of codes){
    const hits=pools.flatMap(x=>(x.index.get(code)||[]).map(rec=>({...rec,mode:x.mode,tab:x.tab})));
    // Same row can appear in more than one tab: deduplicate by product and retailer code.
@@ -70,8 +122,10 @@ $('findBtn').addEventListener('click',async()=>{
     if(needsReview){missingBySku[h.mode].add(r.length-1);previewMissing.add(previewRows.length);review++}else{otp.push([source.product,h.phone,h.otp]);ok++}
     previewRows.push(row);
     if(h.mode==='egg'){eggAll.push(h.raw);const state=h.state||'Unknown State';if(!eggStates.has(state))eggStates.set(state,[source.names.slice()]);eggStates.get(state).push(h.raw)}
+   }else if(!unique.length && creatorIndex && singleCreatorHit(code,creatorIndex).state==='found'){
+    const hit=singleCreatorHit(code,creatorIndex).record,pin=newOTP(creatorOtpUsed);creatorRows.push(creatorFullRow(hit,pin));if(hit.phone){otp.push(['Data Creator - SKU unverified',hit.phone,pin]);ok++}else review++;previewMissing.add(previewRows.length);previewRows.push([code,hit.name,hit.state,pin,hit.phone,'Data Creator · SKU unverified']);
    }else{
-    const status=unique.length?'AMBIGUOUS':'NOT FOUND';
+    const status=unique.length?'AMBIGUOUS':creatorIndex && singleCreatorHit(code,creatorIndex).state==='ambiguous'?'AMBIGUOUS IN DATA CREATOR':'NOT FOUND';
     unmatched.push([code,status,unique.length?unique.map(h=>SOURCES[h.mode].product+' · '+h.state+' · '+h.rtr).join(' | '):'Not found across all 7 source tabs']);
     previewMissing.add(previewRows.length);previewRows.push([code,status,'','','','']);
     if(unique.length)review++;else notfound++;
@@ -82,23 +136,24 @@ $('findBtn').addEventListener('click',async()=>{
   $('resultHeading').textContent='All SKUs · Combined matching summary';
   $('sheetNotes').textContent='Export: All OTP · Tele_Onion · Tele_Egg_Yellow · Tele_Karthika · Egg All Columns · Egg state-wise sheets · Unmatched / Review. Yellow indicates missing or ambiguous identifiers or incomplete contact details.';
   $('results').style.display='block';$('status').textContent=`Complete · ${ok} ready of ${codes.length}`;
-  exported={mode:'all',tele,missingBySku,otp,eggAll,eggStates,unmatched};$('downloadBtn').disabled=false;
+  exported={mode:'all',tele,missingBySku,otp,eggAll,eggStates,unmatched,creatorRows};$('downloadBtn').disabled=false;
   setMessage(`Searched all ${pools.length} source tabs. ${ok} ready; ${notfound} not found; ${review} need review.`,false);
   return;
  }
 
- const maps=await Promise.all(tabs.map(async t=>makeIndex(await loadTable(source,t),source,t)));
+ const maps=await Promise.all(tabs.map(async t=>makeIndex(await loadTable(source,t),source,t)));const creatorIndex=$('fallbackCheck').checked?await fetchCreatorIndex():null;const creatorRows=[CREATED_HEADERS],creatorOtpUsed=new Set(),creatorMiss=[];
  const rows1=[['Unique Code / Rtrcode','RtrName','State','OTP','Shopkeeper Number','Product']],rows2=[['Product','Shopkeeper Number','otp']];const allRows=[source.names.slice()],byState=new Map(),missing=new Set();let success=0,notfound=0,review=0;
  for(const code of codes){const hits=maps.flatMap(m=>m.get(code)||[]);const unique=[...new Map(hits.map(h=>[JSON.stringify(h.raw),h])).values()];
   if(unique.length===1){const hit=unique[0];const record=[code,hit.name,hit.state,hit.otp||'MISSING OTP',hit.phone||'MISSING NUMBER',source.product];rows1.push(record);
    if(hit.phone&&hit.otp){rows2.push([source.product,hit.phone,hit.otp]);success++}else{missing.add(rows1.length-1);review++}
    if(mode==='egg'){allRows.push(hit.raw);const state=hit.state||'Unknown State';if(!byState.has(state))byState.set(state,[source.names.slice()]);byState.get(state).push(hit.raw)}
-  }else{rows1.push([code,unique.length?'AMBIGUOUS - Multiple records':'NOT FOUND','','','',source.product]);missing.add(rows1.length-1);if(unique.length)review++;else notfound++}
+  }else if(!unique.length && creatorIndex && singleCreatorHit(code,creatorIndex).state==='found'){const r=singleCreatorHit(code,creatorIndex).record,pin=newOTP(creatorOtpUsed);creatorRows.push(creatorFullRow(r,pin));rows1.push([code,r.name,r.state,pin,r.phone,'Data Creator · SKU unverified']);missing.add(rows1.length-1);creatorMiss.push(code);review++;}
+  else{rows1.push([code,unique.length?'AMBIGUOUS - Multiple records':creatorIndex&&singleCreatorHit(code,creatorIndex).state==='ambiguous'?'AMBIGUOUS IN DATA CREATOR':'NOT FOUND','','','',source.product]);missing.add(rows1.length-1);if(unique.length||creatorIndex&&singleCreatorHit(code,creatorIndex).state==='ambiguous')review++;else notfound++}
  }
  $('preview').replaceChildren();rows1.slice(1).forEach((r,i)=>previewRow(r,missing.has(i+1)));
  $('kpis').innerHTML=`<div class="kpi"><b>${codes.length}</b><span>Codes entered</span></div><div class="kpi"><b>${success}</b><span>Ready for OTP</span></div><div class="kpi"><b>${notfound}</b><span>Not Found</span></div><div class="kpi"><b>${review}</b><span>Needs Review</span></div>${mode==='egg'?`<div class="kpi"><b>${byState.size}</b><span>State sheets</span></div>`:''}`;
  $('resultHeading').textContent='Matching summary · Rtrcode (A) or Unique Code ('+(mode==='onion'?'E':'D')+')';$('sheetNotes').textContent=mode==='egg'?'Sheet 1: Telecalling · Sheet 2: Chik Egg Yellow OTP · Sheet 3: All Columns · Further sheets: each state represented among matched codes. Yellow = not found, missing details or ambiguous.':'Sheet 1: Telecalling · Sheet 2: '+source.product+' OTP. Yellow = not found, missing details or ambiguous.';
- $('results').style.display='block';$('status').textContent=`Complete · ${success} ready of ${codes.length}`;exported={rows1,rows2,allRows,byState,missing,mode};$('downloadBtn').disabled=false;setMessage(`Fetched ${tabs.join(', ')}. ${success} ready; ${notfound} not found; ${review} need review.`,false)
+ $('results').style.display='block';$('status').textContent=`Complete · ${success} ready of ${codes.length}`;exported={rows1,rows2,allRows,byState,missing,mode,creatorRows};$('downloadBtn').disabled=false;setMessage(`Fetched ${tabs.join(', ')}. ${success} ready; ${notfound} not found; ${review} need review.`,false)
  }catch(e){$('status').textContent='Fetch failed';setMessage(e.message,true)}finally{$('findBtn').disabled=false;document.querySelectorAll('.tab').forEach(b=>b.disabled=false)}
 });
 function styleSheet(ws,rows,widths,missing){ws['!cols']=widths.map(w=>({wch:w}));ws['!autofilter']={ref:XLSX.utils.encode_range({s:{r:0,c:0},e:{r:Math.max(0,rows.length-1),c:rows[0].length-1}})};ws['!freeze']={xSplit:0,ySplit:1};for(let r=0;r<rows.length;r++)for(let c=0;c<rows[0].length;c++){const a=XLSX.utils.encode_cell({r,c});if(!ws[a])continue;ws[a].t='s';ws[a].v=String(rows[r][c]??'');ws[a].s=r===0?{fill:{fgColor:{rgb:'173B57'}},font:{bold:true,color:{rgb:'FFFFFF'}}}:{fill:{fgColor:{rgb:missing.has(r)?'FFF2A8':r%2?'FFFFFF':'F2F6FA'}},font:{color:{rgb:missing.has(r)?'805B00':'206353'}}}}}
@@ -110,10 +165,11 @@ $('downloadBtn').addEventListener('click',()=>{if(!exported)return;if(typeof XLS
   for(const [mode,name] of [['onion','Tele_Onion'],['egg','Tele_Egg_Yellow'],['karthika','Tele_Karthika']])add(name,e.tele[mode],[24,38,20,17,23,19],e.missingBySku[mode]);
   add('Egg All Columns',e.eggAll,[52,38,17,19,19,25,56,19,17,17,24]);
   for(const [state,rows] of [...e.eggStates].sort((a,b)=>a[0].localeCompare(b[0])))add('Egg '+state,rows,[52,38,17,19,19,25,56,19,17,17,24]);
+  if(e.creatorRows?.length>1)add('Creator Matches',e.creatorRows,[52,38,17,22,19,28,55,24,18,17,24]);
   if(e.unmatched.length>1)add('Unmatched Review',e.unmatched,[28,24,95],new Set(e.unmatched.slice(1).map((_,i)=>i+1)));
   XLSX.writeFile(wb,'CHIK_All_SKUs_'+new Date().toISOString().slice(0,10)+'.xlsx');return;
  }
- add('Telecalling',e.rows1,[19,38,20,17,23,19],e.missing);add(e.mode==='egg'?'Chik Egg Yellow OTP':e.mode==='karthika'?'Karthika OTP':'Chik Onion OTP',e.rows2,[22,24,17]);if(e.mode==='egg'){add('All Columns',e.allRows,[52,38,17,19,19,25,56,19,17,17,24]);for(const [state,rows] of [...e.byState].sort((a,b)=>a[0].localeCompare(b[0])))add(state,rows,[52,38,17,19,19,25,56,19,17,17,24])}
+ add('Telecalling',e.rows1,[19,38,20,17,23,19],e.missing);add(e.mode==='egg'?'Chik Egg Yellow OTP':e.mode==='karthika'?'Karthika OTP':'Chik Onion OTP',e.rows2,[22,24,17]);if(e.creatorRows?.length>1)add('Creator Matches',e.creatorRows,[52,38,17,22,19,28,55,24,18,17,24]);if(e.mode==='egg'){add('All Columns',e.allRows,[52,38,17,19,19,25,56,19,17,17,24]);for(const [state,rows] of [...e.byState].sort((a,b)=>a[0].localeCompare(b[0])))add(state,rows,[52,38,17,19,19,25,56,19,17,17,24])}
  XLSX.writeFile(wb,(e.mode==='egg'?'Chik_Egg_Yellow':e.mode==='karthika'?'Karthika':'Chik_Onion')+'_Telecalling_'+new Date().toISOString().slice(0,10)+'.xlsx')});
 const CREATOR_SOURCE=[{id:'19YsaCal4NPod7dt1JU3qbE_DpGJztf24',gid:1219874356,label:'Source 1',names:Array(12).fill('')},{id:'1pk9OI6hLNvUwRmqWMZo-1hWHSbMazBM5',gid:354538490,label:'Source 2',names:Array(12).fill('')}];
 const CREATED_HEADERS=['Rtrcode','RtrName','OTP','Unique Code','SM No','SM Name','Rout Code','State','Lat','Long','Shopkeeper Number'];
